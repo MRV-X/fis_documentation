@@ -12,4 +12,12 @@
          <loc>https://sitename.example/content_tabs/</loc>
          <lastmod>2025-11-21</lastmod>
     </url>
+    <url>
+         <loc>https://sitename.example/it_admins/</loc>
+         <lastmod>2025-11-21</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/it_admins/schedules/</loc>
+         <lastmod>2025-11-21</lastmod>
+    </url>
 </urlset>
