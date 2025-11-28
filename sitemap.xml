@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://sitename.example/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://sitename.example/admonitions/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/admonitions/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://sitename.example/content_tabs/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/content_tabs/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://sitename.example/login/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/login/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://sitename.example/it_admins/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/it_admins/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
     <url>
-         <loc>https://sitename.example/it_admins/schedules/</loc>
-         <lastmod>2025-11-23</lastmod>
+         <loc>https://mrv-x.github.io/fis_documentation/it_admins/schedules/</loc>
+         <lastmod>2025-11-28</lastmod>
     </url>
 </urlset>
