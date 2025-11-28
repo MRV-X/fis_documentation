@@ -1,17 +1,42 @@
+/* ----- Custom Footer Wrapper ----- */
 .md-footer-custom {
-  width: 100%;
-  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: .6rem;
-  opacity: 0.8;
+  padding: 0.8rem 1rem;
+  font-size: 0.55rem;
+  color: var(--md-default-fg-color);
+  opacity: .85;
+
 }
 
+/* Linke Seite */
+.md-footer-custom__left {
+  text-align: left;
+}
+
+/* Rechte Seite */
 .md-footer-custom__right {
   text-align: right;
+  white-space: nowrap;
 }
 
-.md-footer-custom span {
-  margin-left: .5rem;
+/* Links im Footer */
+.md-footer-custom a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+}
+
+/* ----- Responsive Behaviour: Stack on Small Screens ----- */
+@media (max-width: 600px) {
+  .md-footer-custom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .md-footer-custom__right,
+  .md-footer-custom__left {
+    text-align: center;
+    margin-top: 0.3rem;
+  }
 }
