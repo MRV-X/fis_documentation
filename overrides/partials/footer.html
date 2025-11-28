@@ -1,0 +1,13 @@
+{% if config.extra.commit_hash or config.extra.commit_date %}
+<footer class="md-footer-custom">
+  <div class="md-footer-custom__left">
+    <span>© {{ config.site_name }}</span>
+  </div>
+
+  <div class="md-footer-custom__right">
+    {% if config.extra.commit_hash and config.extra.commit_date %}
+      <span>Build: {{ config.extra.commit_date }} • {{ config.extra.commit_hash }}</span>
+    {% endif %}
+  </div>
+</footer>
+{% endif %}
