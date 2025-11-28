@@ -6,7 +6,7 @@
 
   <div class="md-footer-custom__right">
     {% if config.extra.commit_hash and config.extra.commit_date %}
-      <span>Build: {{ config.extra.commit_date }} • {{ config.extra.commit_hash }}</span>
+      <span>Version: {{ config.extra.git_version }} | Build: {{ config.extra.commit_date }} • {{ config.extra.commit_hash }}</span>
     {% endif %}
   </div>
 </footer>
