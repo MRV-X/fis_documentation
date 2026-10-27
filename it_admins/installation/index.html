@@ -1,0 +1,1410 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mrv-x.github.io/fis_documentation/it_admins/installation/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../schedules/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Installation und Betrieb - Forensisches Information System - FIS | Dokumentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/footer.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-und-betrieb" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Forensisches Information System - FIS | Dokumentation" class="md-header__button md-logo" aria-label="Forensisches Information System - FIS | Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Forensisches Information System - FIS | Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation und Betrieb
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="green"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-organge"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Dokumentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  IT-Admins
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Forensisches Information System - FIS | Dokumentation" class="md-nav__button md-logo" aria-label="Forensisches Information System - FIS | Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Forensisches Information System - FIS | Dokumentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dokumentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dokumentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Login
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IT-Admins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IT-Admins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Übersicht
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation und Betrieb
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation und Betrieb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uberblick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Überblick
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-voraussetzungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Voraussetzungen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-code-holen-und-pakete-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Code holen und Pakete installieren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-datenbank-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Datenbank anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-datei-env-ausfullen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Datei .env ausfüllen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tabellen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Tabellen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-superuser-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Superuser anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-anwendung-starten-und-anmelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Anwendung starten und anmelden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-erste-einrichtung-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Erste Einrichtung anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-standardrollen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Standardrollen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ersten-verwalter-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Ersten Verwalter anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-mailversand-einrichten-und-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Mailversand einrichten und testen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-stationen-benutzer-und-rollen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Stationen, Benutzer und Rollen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-zeitgesteuerte-aufgaben-celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Zeitgesteuerte Aufgaben (Celery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aktualisierung-einer-bestehenden-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktualisierung einer bestehenden Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prüfen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverzeitpläne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../render/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Render-Testbetrieb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uberblick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Überblick
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-voraussetzungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Voraussetzungen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-code-holen-und-pakete-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Code holen und Pakete installieren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-datenbank-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Datenbank anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-datei-env-ausfullen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Datei .env ausfüllen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tabellen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Tabellen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-superuser-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Superuser anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-anwendung-starten-und-anmelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Anwendung starten und anmelden
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-erste-einrichtung-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Erste Einrichtung anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-standardrollen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Standardrollen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ersten-verwalter-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Ersten Verwalter anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-mailversand-einrichten-und-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Mailversand einrichten und testen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-stationen-benutzer-und-rollen-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Stationen, Benutzer und Rollen anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-zeitgesteuerte-aufgaben-celery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Zeitgesteuerte Aufgaben (Celery)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aktualisierung-einer-bestehenden-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktualisierung einer bestehenden Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prüfen
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installation-und-betrieb">Installation und Betrieb</h1>
+<p>Diese Seite beschreibt die <strong>Neuinstallation</strong> Schritt für Schritt, danach die Aktualisierung einer bestehenden
+Installation und den Betrieb. Die Reihenfolge ist wichtig, besonders bei den Schritten 7 bis 10.</p>
+<h2 id="uberblick">Überblick</h2>
+<table>
+<thead>
+<tr>
+<th>Schritt</th>
+<th>Was</th>
+<th>Wo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Voraussetzungen prüfen</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Code holen, Umgebung anlegen, Pakete installieren</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Datenbank anlegen</td>
+<td><code>psql</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>.env</code> ausfüllen</td>
+<td>Datei</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tabellen und Cache-Tabelle anlegen</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Superuser anlegen</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Anwendung starten und als Superuser anmelden</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Erste Einrichtung anlegen</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Standardrollen anlegen (<code>seed_roles</code>)</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Ersten Verwalter ohne Superuser-Rechte anlegen</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Mailversand einrichten und testen</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Stationen, Benutzer und Rollen anlegen</td>
+<td>Browser</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Zeitgesteuerte Aufgaben starten</td>
+<td>Terminal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-voraussetzungen">1. Voraussetzungen</h2>
+<ul>
+<li>Python 3.12</li>
+<li>PostgreSQL 16 (die Anwendung läuft nur mit PostgreSQL)</li>
+<li>Git</li>
+<li>Ein Mailserver (SMTP), damit neue Benutzer ihren Passwort-Link per E-Mail bekommen. Ohne Mailserver geht der
+  Betrieb trotzdem: Die Anwendung zeigt dann ein temporäres Passwort an (siehe Schritt 11).</li>
+</ul>
+<h2 id="2-code-holen-und-pakete-installieren">2. Code holen und Pakete installieren</h2>
+<pre><code class="language-bash">git clone https://github.com/MRV-X/FIS.git
+cd FIS
+python -m venv ../virt
+../virt/Scripts/activate        # Linux: source ../virt/bin/activate
+pip install -r requirements/base.txt      # Betrieb
+# pip install -r requirements/dev.txt     # stattdessen für die Entwicklung (ruff, djlint, …)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>requirements/base.txt</code></td>
+<td>Betrieb</td>
+</tr>
+<tr>
+<td><code>requirements/dev.txt</code></td>
+<td>Betrieb + Entwicklung (ruff, djlint, …)</td>
+</tr>
+<tr>
+<td><code>requirements/docs.txt</code></td>
+<td>Dokumentation (MkDocs)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-datenbank-anlegen">3. Datenbank anlegen</h2>
+<p>Benutzer und Datenbank werden mit <code>psql</code> angelegt (ersetzt das frühere Skript <code>mydb.py</code>):</p>
+<pre><code class="language-sql">CREATE USER fis WITH PASSWORD 'sicheres-passwort';
+CREATE DATABASE fisdatabase OWNER fis ENCODING 'UTF8';
+</code></pre>
+<h2 id="4-datei-env-ausfullen">4. Datei <code>.env</code> ausfüllen</h2>
+<p>Vorlage kopieren und anpassen:</p>
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Eintrag</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SECRET_KEY</code></td>
+<td>Geheimer Schlüssel von Django. Neu erzeugen: <code>python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"</code></td>
+</tr>
+<tr>
+<td><code>FIELD_ENCRYPTION_KEY</code></td>
+<td>Schlüssel für verschlüsselte Felder (z. B. das E-Mail-Passwort). Neu erzeugen: <code>python -c "import base64, os; print(base64.urlsafe_b64encode(os.urandom(32)).decode())"</code></td>
+</tr>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td><code>postgres://fis:sicheres-passwort@127.0.0.1:5432/fisdatabase</code> (Benutzer, Passwort, Host, Datenbankname aus Schritt 3)</td>
+</tr>
+<tr>
+<td><code>ALLOWED_HOSTS</code></td>
+<td>Adressen, unter denen die Anwendung erreichbar ist</td>
+</tr>
+<tr>
+<td><code>SITE_URL</code></td>
+<td>Basisadresse für Links in E-Mails, z. B. <code>https://fis.klinik.de</code> (in Produktion Pflicht)</td>
+</tr>
+</tbody>
+</table>
+<p>Weitere Einträge (Sitzungssperre, Passwort-Mindestlänge, Proxy/HTTPS) stehen mit Erklärung in <code>.env.example</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Schlüssel nicht verlieren</p>
+<p><code>SECRET_KEY</code> und <code>FIELD_ENCRYPTION_KEY</code> gehören nur in die <code>.env</code> (nie ins Git). Ohne <code>FIELD_ENCRYPTION_KEY</code>
+sind verschlüsselte Felder (z. B. das E-Mail-Passwort) nicht mehr lesbar. Den Schlüssel nach dem ersten
+Start nicht mehr ändern.</p>
+<p>Das gilt, solange es nur diesen einen Schlüssel gibt. Geplant ist eine Schlüsselrotation mit mehreren Schlüsseln
+(<code>FIELD_ENCRYPTION_KEYS</code>, siehe <code>internal/konzepte/KONZEPT_ENCRYPTION.md</code>). Danach ersetzt eine Anleitung diesen Hinweis. Bis dahin den
+Schlüssel nicht ersetzen und die Schlüssel getrennt vom Datenbank-Backup aufbewahren (<code>internal/konzepte/KONZEPT_BACKUP.md</code>).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Entwicklung oder Produktion</p>
+<p>Welche Einstellungen gelten, bestimmt <code>DJANGO_SETTINGS_MODULE</code>. <code>manage.py</code> und Celery nutzen ohne Angabe
+<code>FIS.settings.local</code> (Debug an), <code>wsgi.py</code> und <code>asgi.py</code> nutzen <code>FIS.settings.production</code>. Im Betrieb die
+Variable auch für <code>manage.py</code> setzen: <code>DJANGO_SETTINGS_MODULE=FIS.settings.production</code>.</p>
+</div>
+<h2 id="5-tabellen-anlegen">5. Tabellen anlegen</h2>
+<pre><code class="language-bash">python manage.py migrate
+python manage.py createcachetable
+</code></pre>
+<ul>
+<li><code>migrate</code> legt alle Tabellen und die Rechte an.</li>
+<li><code>createcachetable</code> legt die Tabelle für den gemeinsamen Cache an (<code>fis_cache</code>). Der Schritt wird oft vergessen.
+  Ohne ihn bricht das Anlegen eines Benutzers mit Temp-Passwort mit „Relation fis_cache existiert nicht“ ab.</li>
+</ul>
+<h2 id="6-superuser-anlegen">6. Superuser anlegen</h2>
+<pre><code class="language-bash">python manage.py createsuperuser
+</code></pre>
+<p>Der Befehl fragt nach Benutzername, Anrede, Vor- und Nachname, Funktion, Abteilung, E-Mail, „Zugriff ab“ und Passwort.</p>
+<div class="admonition info">
+<p class="admonition-title">Wofür der Superuser gedacht ist</p>
+<p>Der Superuser richtet die Anwendung ein (Einrichtung, Rollen, erste Benutzer). Er sieht <strong>keine Patientendaten</strong>,
+und <strong>jede seiner Aktionen wird im Zugriffsprotokoll festgehalten</strong> (Aktion „Superuser-Aktion“). Für die tägliche
+Arbeit bekommt jede Person ein eigenes Konto mit Rollen (Schritt 10 und 12). Das Superuser-Passwort sicher
+aufbewahren und das Konto nicht gemeinsam nutzen.</p>
+</div>
+<h2 id="7-anwendung-starten-und-anmelden">7. Anwendung starten und anmelden</h2>
+<p>Entwicklung:</p>
+<pre><code class="language-bash">python manage.py runserver
+</code></pre>
+<p>Im Betrieb startet der Webserver (z. B. gunicorn/uvicorn hinter einem Proxy) <code>FIS.wsgi</code> bzw. <code>FIS.asgi</code>.</p>
+<p>Im Browser die Adresse aufrufen und mit dem Superuser anmelden. Solange es noch keine Einrichtung gibt, sind die
+meisten Seiten leer. Das ist normal.</p>
+<h2 id="8-erste-einrichtung-anlegen">8. Erste Einrichtung anlegen</h2>
+<ol>
+<li><strong>Einstellungen</strong> (oben in der Leiste) → <strong>Klinik-Einstellungen</strong> öffnen. Ohne vorhandene Einrichtung zeigt die
+   Seite ein leeres Formular.</li>
+<li>Name, Kürzel, Adresse und Kontaktdaten eintragen sowie die Fristen (Benutzer-Warnung und -Deaktivierung,
+   Aufbewahrung der Protokolle, Dauer des Notfallzugriffs) prüfen.</li>
+<li>Das <strong>Klinikkürzel (kk)</strong> hat genau 6 Buchstaben oder Ziffern. Es kennzeichnet alle Datensätze der Einrichtung.
+   Ein Kürzel einer später gelöschten Einrichtung wird nie wieder vergeben. Deshalb sorgfältig wählen.</li>
+<li>Speichern. Die Standard-Lockerungsstufen der Einrichtung werden automatisch angelegt.</li>
+</ol>
+<p>Weitere Einrichtungen legt später jemand mit dem Recht „Einrichtung anlegen“ an (Rolle „Einrichtungsverwaltung“);
+für sie entstehen die Standardrollen automatisch.</p>
+<h2 id="9-standardrollen-anlegen">9. Standardrollen anlegen</h2>
+<p><strong>Erst nach Schritt 8</strong>, einmalig je neuer Datenbank:</p>
+<pre><code class="language-bash">python manage.py seed_roles
+</code></pre>
+<p>Der Befehl legt die Rollen <strong>je vorhandener Einrichtung</strong> an. Die Ausgabe zeigt, was angelegt wurde:</p>
+<pre><code>Einrichtung Testklinik:
+  IT-Administration: angelegt, 6 Recht(e) ergänzt, 0 entfernt
+  Benutzerverwaltung: angelegt, 5 Recht(e) ergänzt, 0 entfernt
+  …
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Reihenfolge einhalten</p>
+<p>Läuft <code>seed_roles</code>, bevor es eine Einrichtung gibt, entstehen Rollen <strong>ohne Einrichtung</strong>. Solche Altrollen
+gelten als einrichtungsübergreifend und sind nicht gewollt (siehe <code>internal/planung/Rechte-Plan.md</code>, AP-09b). Gab es den
+Fehler schon, zuerst die Einrichtung anlegen und den Befehl danach noch einmal ausführen.</p>
+</div>
+<p>Die Standardrollen:</p>
+<table>
+<thead>
+<tr>
+<th>Rolle</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IT-Administration</td>
+<td>Einrichtung (Klinik-Einstellungen) und Stationen verwalten; kein Zugriff auf Fachdaten, Benutzer oder Rollen</td>
+</tr>
+<tr>
+<td>Einrichtungsverwaltung</td>
+<td>wie IT-Administration, darf zusätzlich weitere Einrichtungen anlegen</td>
+</tr>
+<tr>
+<td>Benutzerverwaltung</td>
+<td>Benutzer anlegen, bearbeiten, löschen, Passwort zurücksetzen und ihnen Rollen zuweisen; baut keine Rollen</td>
+</tr>
+<tr>
+<td>Rollenverwaltung</td>
+<td>Rollen aus beliebigen Rechten des Katalogs bauen; weist sie nicht zu</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Die vier Rollen sind <strong>gesperrt</strong>: In der Rollenverwaltung lassen sich weder Name noch Rechte ändern, und sie
+  können nicht gelöscht werden. Nur <code>seed_roles</code> legt sie an und setzt ihre Rechte.</li>
+<li>Erneutes Ausführen setzt die Rechte dieser Rollen <strong>genau</strong> auf die Liste in <code>user/roles.py</code>: Fehlendes wird
+  ergänzt, Überzähliges entfernt. Das ist nach einem Update nötig (siehe unten).</li>
+<li>Alle weiteren Rollen (Pflege, Ärzte, Revision, …) legt die Klinik selbst mit der Rollenverwaltung an. Diese Rollen
+  sind frei änderbar. Autorisiert wird immer über die Rechte der Rolle, nie über ihren Namen.</li>
+<li><strong>Aufgabentrennung:</strong> Wer Rollen baut (Rollenverwaltung), weist sie nicht zu. Wer Benutzer verwaltet
+  (Benutzerverwaltung), baut keine Rollen. Beides darf nicht bei derselben Person liegen; die Anwendung lehnt eine
+  solche Kombination ab. Die Rollenverwaltung darf jedes Recht in eigene Rollen aufnehmen, ohne es selbst zu besitzen.
+  Details: <code>internal/planung/RECHTE_UEBERSICHT.md</code>.</li>
+</ul>
+<h2 id="10-ersten-verwalter-anlegen">10. Ersten Verwalter anlegen</h2>
+<p>Damit nicht dauerhaft mit dem Superuser gearbeitet wird:</p>
+<p>Damit die Aufgaben getrennt bleiben, legt der Superuser <strong>zwei Personen</strong> an, nicht eine:</p>
+<ol>
+<li><strong>Benutzer</strong> → <strong>Benutzer anlegen</strong>. Daten eintragen, im Block der Einrichtung die Rolle
+   <strong>Benutzerverwaltung</strong> wählen. Danach genauso eine zweite Person mit der Rolle <strong>Rollenverwaltung</strong> anlegen.
+   Optional eine dritte mit <strong>IT-Administration</strong> oder <strong>Einrichtungsverwaltung</strong>.</li>
+<li>Hat die Person <strong>keine E-Mail-Adresse</strong> (oder wählen Sie „Temp-Passwort“), zeigt die Seite ein
+   <strong>temporäres Passwort</strong> in einem Fenster an. Es erscheint nur dieses eine Mal: kopieren und der Person sicher
+   übergeben. Nach dem Schließen geht es weiter (zur Bearbeiten-Seite des Benutzers, ohne dieses Recht zur
+   Benutzerliste). Die Person muss das Passwort bei der ersten Anmeldung ändern (Flag „Passwort ändern“).</li>
+<li>Hat die Person eine E-Mail-Adresse, bekommt sie einen Link zum Festlegen des Passworts.</li>
+<li>Mit den neuen Konten anmelden und prüfen, dass Benutzerliste und Rollenverwaltung erreichbar sind.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Wenn die E-Mail nicht gesendet werden kann</p>
+<p>Ist der Mailserver nicht erreichbar (oder noch nicht eingerichtet), legt die Anwendung den Benutzer trotzdem
+an, zeigt eine Warnung und erzeugt stattdessen ein temporäres Passwort.</p>
+</div>
+<h2 id="11-mailversand-einrichten-und-testen">11. Mailversand einrichten und testen</h2>
+<p><strong>Einstellungen → Klinik-Einstellungen → Abschnitt „E-Mail-Versand“</strong>: Server, Port, Verschlüsselung (TLS, SSL oder keine), Benutzer
+und Passwort eintragen und die <strong>Test-E-Mail</strong> senden. Das Passwort wird verschlüsselt gespeichert
+(<code>FIELD_ENCRYPTION_KEY</code>). Ohne Eintrag versucht die Anwendung <code>localhost:25</code>.</p>
+<p>Die Links in den E-Mails beginnen mit <code>SITE_URL</code> aus der <code>.env</code>. Der Wert muss von außen erreichbar sein.</p>
+<h2 id="12-stationen-benutzer-und-rollen-anlegen">12. Stationen, Benutzer und Rollen anlegen</h2>
+<ol>
+<li><strong>Einstellungen → Stationen</strong>: Stationen der Einrichtung anlegen.</li>
+<li><strong>Benutzer → Benutzer anlegen</strong>: je Person die Rollen <strong>je Einrichtung</strong> wählen und die Stationen zuordnen, auf
+   die sie zugreifen darf. Nur wer in der Einrichtung eine Rolle hat, kann dort Stationen haben.</li>
+<li>Rechte werden <strong>nur über Rollen</strong> vergeben. Direkt am Benutzer vergebene Rechte gibt es nicht mehr: Das Feld ist
+   aus dem Django-Admin entfernt, und vorhandene direkte Rechte wirken nicht mehr.</li>
+<li>Die Benutzerverwaltung weist dem Benutzer vorhandene Rollen der Einrichtung zu. Die eigenen Rollen ändert niemand
+   selbst. Eine Kombination, die Rollen bauen <strong>und</strong> Benutzer anlegen/bearbeiten erlaubt, wird abgelehnt.</li>
+<li>Ein Recht gilt nur in der Einrichtung, in der die Rolle zugewiesen ist. Wer in mehreren Einrichtungen arbeitet,
+   bekommt dort jeweils eigene Rollen und wählt oben die aktive Einrichtung.</li>
+<li>Die <strong>Rollenverwaltung</strong> baut die Rollen der Klinik (zum Beispiel Pflege, Ärztlicher Dienst, Datenschutz/Revision
+   mit den Rechten des Bereichs „Protokolle“, Leitung mit Zugriff auf alle Stationen). Dafür
+   gibt es keine Standardrolle; die Rollenverwaltung kann jedes Recht des Katalogs aufnehmen, ohne es selbst zu besitzen.</li>
+<li>Die <strong>Benutzerverwaltung</strong> weist diese Rollen den Mitarbeitern zu.</li>
+</ol>
+<h2 id="13-zeitgesteuerte-aufgaben-celery">13. Zeitgesteuerte Aufgaben (Celery)</h2>
+<p>Jeden Befehl in einem eigenen Terminal (oder als Dienst) starten:</p>
+<pre><code class="language-bash"># Beat (Zeitplaner)
+celery -A FIS beat -l info
+
+# Worker (unter Windows)
+celery -A FIS worker --pool=solo -l info
+</code></pre>
+<p>Die Zeitpläne sind unter <a href="../schedules/">Serverzeitpläne</a> beschrieben.</p>
+<h2 id="aktualisierung-einer-bestehenden-installation">Aktualisierung einer bestehenden Installation</h2>
+<pre><code class="language-bash">git pull
+pip install -r requirements/base.txt
+python manage.py migrate
+python manage.py seed_roles
+</code></pre>
+<ul>
+<li><code>migrate</code> führt neue Migrationen aus. Sie legen auch neue Rechte an.</li>
+<li><code>seed_roles</code> ergänzt die neuen Rechte in den Standardrollen (z. B. <code>perm_settings_overview</code> für die Einstellungs-
+  übersicht). Eigene oder geänderte Rollen bekommen neue Rechte <strong>nicht</strong> automatisch: Diese in der
+  Rollenverwaltung von Hand ergänzen. Ohne das Recht „Einstellungsübersicht öffnen“ kommen Nicht-Superuser nicht
+  mehr auf die Seite Einstellungen.</li>
+<li>Direkt am Benutzer vergebene Rechte (früher im Django-Admin) wirken nicht mehr. Wer solche Rechte hatte, braucht
+  eine Rolle mit diesen Rechten und eine Zuweisung in der Einrichtung.</li>
+<li>Wurde die Cache-Tabelle noch nicht angelegt: <code>python manage.py createcachetable</code>.</li>
+<li>Die Migration <code>user.0002_clear_user_groups</code> leert die frühere Zuordnung von Benutzern zu Gruppen. Sie war nur eine
+  Spiegelung der Mitgliedschaften; die Rollen je Einrichtung bleiben unverändert.</li>
+</ul>
+<h2 id="prufen">Prüfen</h2>
+<pre><code class="language-bash">python manage.py check
+python manage.py test
+</code></pre>
+<p>Vor einem Push zusätzlich die Prüfungen aus der CI: <code>ruff check .</code>, <code>ruff format --check .</code> und
+<code>python -m djlint templates/ --check</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        
+  <footer class="md-footer-custom">
+    <div class="md-footer-custom__left">
+      <span>© Forensisches Information System - FIS | Dokumentation</span>
+    </div>
+
+    <div class="md-footer-custom__right">
+      
+        <span>Version: cdd26e1 | Build: 27.10.2026 • cdd26e1</span>
+      
+    </div>
+  </footer>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
