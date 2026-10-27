@@ -635,6 +635,28 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#weiteren-superuser-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weiteren Superuser anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wenn-die-datenbank-abgelaufen-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wenn die Datenbank abgelaufen ist
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -704,6 +726,28 @@
     <span class="md-ellipsis">
       
         Erste Einrichtung ohne Shell
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weiteren-superuser-anlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weiteren Superuser anlegen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wenn-die-datenbank-abgelaufen-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wenn die Datenbank abgelaufen ist
       
     </span>
   </a>
@@ -851,8 +895,8 @@ mit <strong>erfundenen Testdaten</strong> ausprobieren können. Echte Patientend
 der <a href="../installation/">Installation</a>:</p>
 <ul>
 <li>Es führt bei jedem Deploy <code>collectstatic</code>, <code>migrate</code> und <code>createcachetable</code> aus.</li>
-<li>Es legt den Superuser aus den Umgebungsvariablen <strong>nur an, wenn noch keiner existiert</strong> (sonst scheitert jeder
-  weitere Deploy).</li>
+<li>Es legt den Superuser aus den Umgebungsvariablen <strong>nur an, wenn es den Benutzernamen noch nicht gibt</strong> (sonst
+  scheitert jeder weitere Deploy).</li>
 <li>Es ruft <code>seed_roles</code> <strong>nur auf, wenn schon eine Einrichtung existiert</strong> (sonst entstehen Rollen ohne Einrichtung).</li>
 </ul>
 <p>Ablauf nach dem ersten Deploy:</p>
@@ -863,6 +907,42 @@ der <a href="../installation/">Installation</a>:</p>
 <li>Das Superuser-Passwort nach dem ersten Login ändern und die Variable <code>DJANGO_SUPERUSER_PASSWORD</code> bei Render
    entfernen.</li>
 </ol>
+<h2 id="weiteren-superuser-anlegen">Weiteren Superuser anlegen</h2>
+<p>Im Gratis-Tarif gibt es keine Shell, und in der Oberfläche lässt sich niemand zum Superuser machen. Ein weiterer
+Superuser entsteht deshalb über das Build-Skript:</p>
+<ol>
+<li>Bei Render unter „Environment“ alle <code>DJANGO_SUPERUSER_*</code>-Variablen auf die Daten der neuen Person setzen. Der
+   Benutzername (<code>DJANGO_SUPERUSER_USERNAME</code>) muss ein <strong>neuer</strong> sein, außerdem <code>DJANGO_SUPERUSER_EMAIL</code>.</li>
+<li>„Manual Deploy“ → „Deploy latest commit“ auslösen. Der Build legt den Superuser an.</li>
+<li>Als neuer Superuser anmelden, das Passwort ändern und <code>DJANGO_SUPERUSER_PASSWORD</code> wieder löschen.</li>
+</ol>
+<p>Der erste Superuser bleibt bestehen. Bei späteren Deploys überspringt das Skript das Anlegen, solange der Benutzername
+schon existiert oder <code>DJANGO_SUPERUSER_USERNAME</code> nicht gesetzt ist.</p>
+<h2 id="wenn-die-datenbank-abgelaufen-ist">Wenn die Datenbank abgelaufen ist</h2>
+<p>Die Gratis-Datenbank läuft nach etwa 30 Tagen ab und wird nach einer kurzen Gnadenfrist gelöscht. Die Testdaten sind
+danach weg. Für erfundene Testdaten ist das in Ordnung: Es wird eine neue Datenbank angelegt und alles wie bei der
+ersten Einrichtung wiederhergestellt.</p>
+<ol>
+<li><strong>Neue Datenbank anlegen:</strong> „New +“ → „PostgreSQL“, Tarif „Free“, gleiche Region wie der Web Service. Die alte
+   Datenbank löschen, falls Render sie noch anzeigt.</li>
+<li><strong>Neue URL eintragen:</strong> Die <em>Internal Database URL</em> der neuen Datenbank kopieren und beim Web Service unter
+   „Environment“ als <code>DATABASE_URL</code> eintragen.</li>
+<li><strong>Superuser-Passwort wieder setzen:</strong> <code>DJANGO_SUPERUSER_PASSWORD</code> erneut eintragen. Die übrigen
+   <code>DJANGO_SUPERUSER_*</code>-Variablen müssen noch vorhanden sein, sonst ergänzen.</li>
+<li><strong>Deploy:</strong> Der Dienst startet nach der Änderung meist von selbst neu, sonst „Manual Deploy“ → „Deploy latest
+   commit“. Der Build legt Tabellen und Superuser an.</li>
+<li><strong>Einrichtung neu anlegen:</strong> Als Superuser anmelden und unter <strong>Einstellungen → Klinik-Einstellungen</strong> die
+   Einrichtung anlegen.</li>
+<li><strong>Noch ein Deploy</strong> auslösen: Der Build legt jetzt die Standardrollen an (<code>seed_roles</code>).</li>
+<li><strong>Benutzer und Rollen</strong> neu anlegen (Installation, Schritt 10 und 12).</li>
+<li><strong>Aufräumen:</strong> Superuser-Passwort in FIS ändern und <code>DJANGO_SUPERUSER_PASSWORD</code> bei Render wieder löschen.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Schlüssel bleiben gleich</p>
+<p><code>SECRET_KEY</code> und <code>FIELD_ENCRYPTION_KEY</code> gehören zum Web Service, nicht zur Datenbank, und bleiben unverändert.</p>
+</div>
+<p>Soll etwas vor dem Ablauf erhalten bleiben, vorher mit <code>pg_dump</code> gegen die <em>External Database URL</em> eine Sicherung
+ziehen. Wer dauerhaft testen will, wechselt auf einen bezahlten Datenbank-Tarif; dort läuft die Datenbank nicht ab.</p>
 
 
 
@@ -893,7 +973,7 @@ der <a href="../installation/">Installation</a>:</p>
 
     <div class="md-footer-custom__right">
       
-        <span>Version: cdd26e1 | Build: 27.10.2026 • cdd26e1</span>
+        <span>Version: 98832f5 | Build: 27.10.2026 • 98832f5</span>
       
     </div>
   </footer>
