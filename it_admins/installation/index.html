@@ -390,6 +390,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anwender/rollen-und-rechte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rollen und Rechte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1234,7 +1262,7 @@ für sie entstehen die Standardrollen automatisch.</p>
 <p>Der Befehl legt die Rollen <strong>je vorhandener Einrichtung</strong> an. Die Ausgabe zeigt, was angelegt wurde:</p>
 <pre><code>Einrichtung Testklinik:
   IT-Administration: angelegt, 6 Recht(e) ergänzt, 0 entfernt
-  Benutzerverwaltung: angelegt, 5 Recht(e) ergänzt, 0 entfernt
+  Benutzer- und Rollenverwaltung: angelegt, 7 Recht(e) ergänzt, 0 entfernt
   …
 </code></pre>
 <div class="admonition warning">
@@ -1261,40 +1289,34 @@ Fehler schon, zuerst die Einrichtung anlegen und den Befehl danach noch einmal a
 <td>wie IT-Administration, darf zusätzlich weitere Einrichtungen anlegen</td>
 </tr>
 <tr>
-<td>Benutzerverwaltung</td>
-<td>Benutzer anlegen, bearbeiten, löschen, Passwort zurücksetzen und ihnen Rollen zuweisen; baut keine Rollen</td>
-</tr>
-<tr>
-<td>Rollenverwaltung</td>
-<td>Rollen aus beliebigen Rechten des Katalogs bauen; weist sie nicht zu</td>
+<td>Benutzer- und Rollenverwaltung</td>
+<td>Benutzer anlegen, bearbeiten, löschen, Passwort zurücksetzen, ihnen Rollen zuweisen und Rollen aus beliebigen Rechten des Katalogs bauen</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>Die vier Rollen sind <strong>gesperrt</strong>: In der Rollenverwaltung lassen sich weder Name noch Rechte ändern, und sie
+<li>Die drei Rollen sind <strong>gesperrt</strong>: In der Rollenverwaltung lassen sich weder Name noch Rechte ändern, und sie
   können nicht gelöscht werden. Nur <code>seed_roles</code> legt sie an und setzt ihre Rechte.</li>
 <li>Erneutes Ausführen setzt die Rechte dieser Rollen <strong>genau</strong> auf die Liste in <code>user/roles.py</code>: Fehlendes wird
   ergänzt, Überzähliges entfernt. Das ist nach einem Update nötig (siehe unten).</li>
 <li>Alle weiteren Rollen (Pflege, Ärzte, Revision, …) legt die Klinik selbst mit der Rollenverwaltung an. Diese Rollen
   sind frei änderbar. Autorisiert wird immer über die Rechte der Rolle, nie über ihren Namen.</li>
-<li><strong>Aufgabentrennung:</strong> Wer Rollen baut (Rollenverwaltung), weist sie nicht zu. Wer Benutzer verwaltet
-  (Benutzerverwaltung), baut keine Rollen. Beides darf nicht bei derselben Person liegen; die Anwendung lehnt eine
-  solche Kombination ab. Die Rollenverwaltung darf jedes Recht in eigene Rollen aufnehmen, ohne es selbst zu besitzen.
-  Details: <code>internal/planung/RECHTE_UEBERSICHT.md</code>.</li>
+<li><strong>Keine Aufgabentrennung:</strong> Die Anwendung erzwingt keine. Wer Rollen baut, darf sie auch zuweisen und jedes Recht
+  des Katalogs aufnehmen, ohne es selbst zu besitzen. Das sind „Superrechte“, siehe die
+  <a href="../../anwender/rollen-und-rechte/">Anwenderdokumentation</a>. Die Klinik regelt die Aufgabentrennung organisatorisch.</li>
 </ul>
 <h2 id="10-ersten-verwalter-anlegen">10. Ersten Verwalter anlegen</h2>
 <p>Damit nicht dauerhaft mit dem Superuser gearbeitet wird:</p>
-<p>Damit die Aufgaben getrennt bleiben, legt der Superuser <strong>zwei Personen</strong> an, nicht eine:</p>
 <ol>
 <li><strong>Benutzer</strong> → <strong>Benutzer anlegen</strong>. Daten eintragen, im Block der Einrichtung die Rolle
-   <strong>Benutzerverwaltung</strong> wählen. Danach genauso eine zweite Person mit der Rolle <strong>Rollenverwaltung</strong> anlegen.
-   Optional eine dritte mit <strong>IT-Administration</strong> oder <strong>Einrichtungsverwaltung</strong>.</li>
+   <strong>Benutzer- und Rollenverwaltung</strong> wählen. Optional weitere Personen mit <strong>IT-Administration</strong> oder
+   <strong>Einrichtungsverwaltung</strong> anlegen.</li>
 <li>Hat die Person <strong>keine E-Mail-Adresse</strong> (oder wählen Sie „Temp-Passwort“), zeigt die Seite ein
    <strong>temporäres Passwort</strong> in einem Fenster an. Es erscheint nur dieses eine Mal: kopieren und der Person sicher
    übergeben. Nach dem Schließen geht es weiter (zur Bearbeiten-Seite des Benutzers, ohne dieses Recht zur
    Benutzerliste). Die Person muss das Passwort bei der ersten Anmeldung ändern (Flag „Passwort ändern“).</li>
 <li>Hat die Person eine E-Mail-Adresse, bekommt sie einen Link zum Festlegen des Passworts.</li>
-<li>Mit den neuen Konten anmelden und prüfen, dass Benutzerliste und Rollenverwaltung erreichbar sind.</li>
+<li>Mit den neuen Konten anmelden und prüfen, dass Benutzerliste und Rollen erreichbar sind.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Wenn die E-Mail nicht gesendet werden kann</p>
@@ -1313,14 +1335,14 @@ und Passwort eintragen und die <strong>Test-E-Mail</strong> senden. Das Passwort
    die sie zugreifen darf. Nur wer in der Einrichtung eine Rolle hat, kann dort Stationen haben.</li>
 <li>Rechte werden <strong>nur über Rollen</strong> vergeben. Direkt am Benutzer vergebene Rechte gibt es nicht mehr: Das Feld ist
    aus dem Django-Admin entfernt, und vorhandene direkte Rechte wirken nicht mehr.</li>
-<li>Die Benutzerverwaltung weist dem Benutzer vorhandene Rollen der Einrichtung zu. Die eigenen Rollen ändert niemand
-   selbst. Eine Kombination, die Rollen bauen <strong>und</strong> Benutzer anlegen/bearbeiten erlaubt, wird abgelehnt.</li>
+<li>Wer Benutzer bearbeiten darf, weist dem Benutzer vorhandene Rollen der Einrichtung zu. Die eigenen Rollen ändert
+   niemand selbst.</li>
 <li>Ein Recht gilt nur in der Einrichtung, in der die Rolle zugewiesen ist. Wer in mehreren Einrichtungen arbeitet,
    bekommt dort jeweils eigene Rollen und wählt oben die aktive Einrichtung.</li>
-<li>Die <strong>Rollenverwaltung</strong> baut die Rollen der Klinik (zum Beispiel Pflege, Ärztlicher Dienst, Datenschutz/Revision
+<li>Wer Rollen baut, legt die Rollen der Klinik an (zum Beispiel Pflege, Ärztlicher Dienst, Datenschutz/Revision
    mit den Rechten des Bereichs „Protokolle“, Leitung mit Zugriff auf alle Stationen). Dafür
-   gibt es keine Standardrolle; die Rollenverwaltung kann jedes Recht des Katalogs aufnehmen, ohne es selbst zu besitzen.</li>
-<li>Die <strong>Benutzerverwaltung</strong> weist diese Rollen den Mitarbeitern zu.</li>
+   gibt es keine Standardrolle; jedes Recht des Katalogs lässt sich aufnehmen, ohne es selbst zu besitzen.</li>
+<li>Wer Benutzer bearbeiten darf, weist diese Rollen den Mitarbeitern zu.</li>
 </ol>
 <h2 id="13-zeitgesteuerte-aufgaben-celery">13. Zeitgesteuerte Aufgaben (Celery)</h2>
 <p>Jeden Befehl in einem eigenen Terminal (oder als Dienst) starten:</p>
@@ -1346,6 +1368,9 @@ python manage.py seed_roles
 <li>Direkt am Benutzer vergebene Rechte (früher im Django-Admin) wirken nicht mehr. Wer solche Rechte hatte, braucht
   eine Rolle mit diesen Rechten und eine Zuweisung in der Einrichtung.</li>
 <li>Wurde die Cache-Tabelle noch nicht angelegt: <code>python manage.py createcachetable</code>.</li>
+<li>Die früheren Standardrollen „Benutzerverwaltung“ und „Rollenverwaltung“ wurden zu „Benutzer- und
+  Rollenverwaltung“ zusammengelegt. <code>seed_roles</code> legt die neue Rolle an, fasst die alten aber nicht mehr an: Sie
+  bleiben mit ihren Mitgliedern bestehen und sind gesperrt. Neue Installationen haben sie nicht.</li>
 <li>Die Migration <code>user.0002_clear_user_groups</code> leert die frühere Zuordnung von Benutzern zu Gruppen. Sie war nur eine
   Spiegelung der Mitgliedschaften; die Rollen je Einrichtung bleiben unverändert.</li>
 </ul>
@@ -1385,7 +1410,7 @@ python manage.py test
 
     <div class="md-footer-custom__right">
       
-        <span>Version: 98832f5 | Build: 27.10.2026 • 98832f5</span>
+        <span>Version: 140c177 | Build: 27.10.2026 • 140c177</span>
       
     </div>
   </footer>
