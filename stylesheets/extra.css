@@ -1,0 +1,263 @@
+/* =============================================================
+   FIS-Dokumentation – Look&Feel der Anwendung
+   Übernimmt Farben, Schrift, Radien und Linien aus static/fis/css/fis.css
+   und legt sie über die Variablen des Material-Themes.
+   Keine externen Schriften (Datenschutz): Systemschriften wie in der Anwendung.
+   ============================================================= */
+
+:root {
+  --fis-petrol: #0e6b78;
+  --fis-petrol-dark: #0a525c;
+  --fis-petrol-soft: #e2f0f2;
+  --fis-ink: #1b2a31;
+  --fis-muted: #5c6e76;
+  --fis-canvas: #f3f6f7;
+  --fis-surface: #ffffff;
+  --fis-line: #dce4e8;
+  --fis-line-strong: #c3cfd5;
+  --fis-radius: 10px;
+  --fis-radius-sm: 6px;
+  --fis-shadow: 0 1px 2px rgba(20, 40, 50, 0.05), 0 4px 14px rgba(20, 40, 50, 0.04);
+
+  --md-text-font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --md-code-font: ui-monospace, "Cascadia Mono", "Consolas", "SFMono-Regular", Menlo, monospace;
+}
+
+[data-md-color-scheme="slate"] {
+  --fis-petrol: #4cb5c4;
+  --fis-petrol-dark: #7fd0dc;
+  --fis-petrol-soft: #16363c;
+  --fis-ink: #e4ecef;
+  --fis-muted: #9db0b8;
+  --fis-canvas: #0f1a1f;
+  --fis-surface: #172429;
+  --fis-line: #26373e;
+  --fis-line-strong: #364a52;
+  --fis-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Theme-Variablen auf FIS-Farben legen ---------- */
+
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--fis-surface);
+  --md-primary-bg-color: var(--fis-ink);
+  --md-primary-bg-color--light: var(--fis-muted);
+  --md-accent-fg-color: var(--fis-petrol);
+  --md-default-bg-color: var(--fis-canvas);
+  --md-default-fg-color: var(--fis-ink);
+  --md-default-fg-color--light: var(--fis-muted);
+  --md-default-fg-color--lighter: var(--fis-line-strong);
+  --md-default-fg-color--lightest: var(--fis-line);
+  --md-typeset-color: var(--fis-ink);
+  --md-typeset-a-color: var(--fis-petrol);
+  --md-code-bg-color: var(--fis-surface);
+  --md-code-fg-color: var(--fis-ink);
+  --md-footer-bg-color: var(--fis-surface);
+  --md-footer-bg-color--dark: var(--fis-surface);
+  --md-footer-fg-color: var(--fis-ink);
+  --md-footer-fg-color--light: var(--fis-muted);
+  --md-footer-fg-color--lighter: var(--fis-muted);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Kopfzeile und Reiter: helle Fläche mit Linie wie die Kopfzeile der App ---------- */
+
+.md-header,
+.md-tabs {
+  background-color: var(--fis-surface);
+  color: var(--fis-ink);
+  border-bottom: 1px solid var(--fis-line);
+  box-shadow: none;
+}
+
+.md-tabs {
+  border-bottom: 1px solid var(--fis-line);
+}
+
+.md-header[data-md-state="shadow"] {
+  box-shadow: var(--fis-shadow);
+}
+
+.md-tabs__link {
+  opacity: 1;
+  color: var(--fis-muted);
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--fis-petrol);
+}
+
+.md-search__form {
+  background-color: var(--fis-canvas);
+  border: 1px solid var(--fis-line);
+  border-radius: var(--fis-radius-sm);
+}
+
+.md-search__form:hover {
+  background-color: var(--fis-canvas);
+}
+
+.md-search__input::placeholder,
+.md-search__input + .md-search__icon {
+  color: var(--fis-muted);
+}
+
+.md-search__output {
+  border-radius: 0 0 var(--fis-radius) var(--fis-radius);
+}
+
+/* ---------- Navigation ---------- */
+
+.md-nav__link {
+  border-radius: var(--fis-radius-sm);
+}
+
+.md-nav__item .md-nav__link--active,
+.md-nav__link:is(:focus, :hover) {
+  color: var(--fis-petrol);
+}
+
+.md-nav--primary .md-nav__title,
+.md-nav__title {
+  color: var(--fis-muted);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    padding-right: 0.4rem;
+  }
+}
+
+/* ---------- Überschriften ---------- */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fis-ink);
+}
+
+.md-typeset h1 {
+  margin-bottom: 1.2rem;
+}
+
+.md-typeset h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--fis-line);
+}
+
+.md-typeset a:hover {
+  color: var(--fis-petrol-dark);
+}
+
+/* ---------- Hinweisboxen (Admonitions) und Aufklapper ---------- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: var(--fis-surface);
+  border: 1px solid var(--fis-line);
+  border-left-width: 4px;
+  border-radius: var(--fis-radius);
+  box-shadow: var(--fis-shadow);
+  font-size: 0.8rem;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+  border-radius: 0 var(--fis-radius-sm) 0 0;
+}
+
+/* ---------- Tabellen wie .table der Anwendung ---------- */
+
+.md-typeset table:not([class]) {
+  background-color: var(--fis-surface);
+  border: 1px solid var(--fis-line);
+  border-radius: var(--fis-radius);
+  box-shadow: var(--fis-shadow);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--fis-canvas);
+  color: var(--fis-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--fis-line-strong);
+  white-space: nowrap;
+}
+
+.md-typeset table:not([class]) td {
+  border-top: 1px solid var(--fis-line);
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--fis-canvas);
+  box-shadow: none;
+}
+
+/* ---------- Code ---------- */
+
+.md-typeset code,
+.md-typeset pre > code {
+  border-radius: var(--fis-radius-sm);
+}
+
+.md-typeset code {
+  background-color: var(--fis-petrol-soft);
+  color: var(--fis-petrol-dark);
+}
+
+.md-typeset pre > code {
+  background-color: var(--fis-surface);
+  border: 1px solid var(--fis-line);
+}
+
+.md-typeset kbd {
+  background-color: var(--fis-surface);
+  color: var(--fis-ink);
+  border-radius: var(--fis-radius-sm);
+}
+
+/* ---------- Inhaltstabs ---------- */
+
+.md-typeset .tabbed-set {
+  border-radius: var(--fis-radius);
+}
+
+.md-typeset .tabbed-labels > label:hover,
+.md-typeset .tabbed-labels > input:checked + label {
+  color: var(--fis-petrol);
+}
+
+.md-typeset .tabbed-labels::before {
+  background: var(--fis-petrol);
+}
+
+/* ---------- Fußzeile ---------- */
+
+.md-footer,
+.md-footer-meta {
+  background-color: var(--fis-surface);
+  border-top: 1px solid var(--fis-line);
+}
+
+.md-footer-custom {
+  color: var(--fis-muted);
+}
+
+/* ---------- Bilder ---------- */
+
+.md-typeset img {
+  border-radius: var(--fis-radius-sm);
+}
